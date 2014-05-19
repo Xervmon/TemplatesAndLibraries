@@ -1,7 +1,7 @@
 {
     "AWSTemplateFormatVersion" : "2010-09-09",
 
-    "Description" : "JacobInteractive MongoDB Replica Node 20140512-01",
+    "Description" : "Xervmon MongoDB Replica Node 20140512-01",
 
     "Parameters" : {
         "KeyName" : {
