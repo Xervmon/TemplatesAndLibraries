@@ -1,0 +1,58 @@
+[2014-06-02 01:05:21] local.ERROR: 500 - SQLSTATE[HY000] [2002] Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (2) @ /
+exception 'PDOException' with message 'SQLSTATE[HY000] [2002] Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (2)' in /var/www/html/flwoutdoors/vendor/laravel/framework/src/Illuminate/Database/Connectors/Connector.php:47
+Stack trace:
+#0 /var/www/html/flwoutdoors/vendor/laravel/framework/src/Illuminate/Database/Connectors/Connector.php(47): PDO->__construct('mysql:host=loca...', 'root', 'password', Array)
+#1 /var/www/html/flwoutdoors/vendor/laravel/framework/src/Illuminate/Database/Connectors/MySqlConnector.php(20): Illuminate\Database\Connectors\Connector->createConnection('mysql:host=loca...', Array, Array)
+#2 /var/www/html/flwoutdoors/vendor/laravel/framework/src/Illuminate/Database/Connectors/ConnectionFactory.php(59): Illuminate\Database\Connectors\MySqlConnector->connect(Array)
+#3 /var/www/html/flwoutdoors/vendor/laravel/framework/src/Illuminate/Database/Connectors/ConnectionFactory.php(47): Illuminate\Database\Connectors\ConnectionFactory->createSingleConnection(Array)
+#4 /var/www/html/flwoutdoors/vendor/laravel/framework/src/Illuminate/Database/DatabaseManager.php(127): Illuminate\Database\Connectors\ConnectionFactory->make(Array, 'mysql')
+#5 /var/www/html/flwoutdoors/vendor/laravel/framework/src/Illuminate/Database/DatabaseManager.php(63): Illuminate\Database\DatabaseManager->makeConnection('mysql')
+#6 /var/www/html/flwoutdoors/vendor/laravel/framework/src/Illuminate/Database/Migrations/DatabaseMigrationRepository.php(167): Illuminate\Database\DatabaseManager->connection(NULL)
+#7 /var/www/html/flwoutdoors/vendor/laravel/framework/src/Illuminate/Database/Migrations/DatabaseMigrationRepository.php(135): Illuminate\Database\Migrations\DatabaseMigrationRepository->getConnection()
+#8 /var/www/html/flwoutdoors/vendor/laravel/framework/src/Illuminate/Database/Migrations/Migrator.php(366): Illuminate\Database\Migrations\DatabaseMigrationRepository->repositoryExists()
+#9 /var/www/html/flwoutdoors/vendor/laravel/framework/src/Illuminate/Database/Console/Migrations/MigrateCommand.php(93): Illuminate\Database\Migrations\Migrator->repositoryExists()
+#10 /var/www/html/flwoutdoors/vendor/laravel/framework/src/Illuminate/Database/Console/Migrations/MigrateCommand.php(56): Illuminate\Database\Console\Migrations\MigrateCommand->prepareDatabase()
+#11 /var/www/html/flwoutdoors/vendor/laravel/framework/src/Illuminate/Console/Command.php(108): Illuminate\Database\Console\Migrations\MigrateCommand->fire()
+#12 /var/www/html/flwoutdoors/vendor/symfony/console/Symfony/Component/Console/Command/Command.php(241): Illuminate\Console\Command->execute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#13 /var/www/html/flwoutdoors/vendor/laravel/framework/src/Illuminate/Console/Command.php(96): Symfony\Component\Console\Command\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#14 /var/www/html/flwoutdoors/vendor/symfony/console/Symfony/Component/Console/Application.php(885): Illuminate\Console\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#15 /var/www/html/flwoutdoors/vendor/symfony/console/Symfony/Component/Console/Application.php(191): Symfony\Component\Console\Application->doRunCommand(Object(Illuminate\Database\Console\Migrations\MigrateCommand), Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#16 /var/www/html/flwoutdoors/vendor/symfony/console/Symfony/Component/Console/Application.php(121): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#17 /var/www/html/flwoutdoors/artisan(59): Symfony\Component\Console\Application->run()
+#18 {main} [] []
+[2014-06-02 01:10:40] local.ERROR: 500 - SQLSTATE[42000] [1049] Unknown database 'flwoutdoors' @ /
+exception 'PDOException' with message 'SQLSTATE[42000] [1049] Unknown database 'flwoutdoors'' in /var/www/html/flwoutdoors/vendor/laravel/framework/src/Illuminate/Database/Connectors/Connector.php:47
+Stack trace:
+#0 /var/www/html/flwoutdoors/vendor/laravel/framework/src/Illuminate/Database/Connectors/Connector.php(47): PDO->__construct('mysql:host=loca...', 'root', '', Array)
+#1 /var/www/html/flwoutdoors/vendor/laravel/framework/src/Illuminate/Database/Connectors/MySqlConnector.php(20): Illuminate\Database\Connectors\Connector->createConnection('mysql:host=loca...', Array, Array)
+#2 /var/www/html/flwoutdoors/vendor/laravel/framework/src/Illuminate/Database/Connectors/ConnectionFactory.php(59): Illuminate\Database\Connectors\MySqlConnector->connect(Array)
+#3 /var/www/html/flwoutdoors/vendor/laravel/framework/src/Illuminate/Database/Connectors/ConnectionFactory.php(47): Illuminate\Database\Connectors\ConnectionFactory->createSingleConnection(Array)
+#4 /var/www/html/flwoutdoors/vendor/laravel/framework/src/Illuminate/Database/DatabaseManager.php(127): Illuminate\Database\Connectors\ConnectionFactory->make(Array, 'mysql')
+#5 /var/www/html/flwoutdoors/vendor/laravel/framework/src/Illuminate/Database/DatabaseManager.php(63): Illuminate\Database\DatabaseManager->makeConnection('mysql')
+#6 /var/www/html/flwoutdoors/vendor/laravel/framework/src/Illuminate/Database/Migrations/DatabaseMigrationRepository.php(167): Illuminate\Database\DatabaseManager->connection(NULL)
+#7 /var/www/html/flwoutdoors/vendor/laravel/framework/src/Illuminate/Database/Migrations/DatabaseMigrationRepository.php(135): Illuminate\Database\Migrations\DatabaseMigrationRepository->getConnection()
+#8 /var/www/html/flwoutdoors/vendor/laravel/framework/src/Illuminate/Database/Migrations/Migrator.php(366): Illuminate\Database\Migrations\DatabaseMigrationRepository->repositoryExists()
+#9 /var/www/html/flwoutdoors/vendor/laravel/framework/src/Illuminate/Database/Console/Migrations/MigrateCommand.php(93): Illuminate\Database\Migrations\Migrator->repositoryExists()
+#10 /var/www/html/flwoutdoors/vendor/laravel/framework/src/Illuminate/Database/Console/Migrations/MigrateCommand.php(56): Illuminate\Database\Console\Migrations\MigrateCommand->prepareDatabase()
+#11 /var/www/html/flwoutdoors/vendor/laravel/framework/src/Illuminate/Console/Command.php(108): Illuminate\Database\Console\Migrations\MigrateCommand->fire()
+#12 /var/www/html/flwoutdoors/vendor/symfony/console/Symfony/Component/Console/Command/Command.php(241): Illuminate\Console\Command->execute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#13 /var/www/html/flwoutdoors/vendor/laravel/framework/src/Illuminate/Console/Command.php(96): Symfony\Component\Console\Command\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#14 /var/www/html/flwoutdoors/vendor/symfony/console/Symfony/Component/Console/Application.php(885): Illuminate\Console\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#15 /var/www/html/flwoutdoors/vendor/symfony/console/Symfony/Component/Console/Application.php(191): Symfony\Component\Console\Application->doRunCommand(Object(Illuminate\Database\Console\Migrations\MigrateCommand), Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#16 /var/www/html/flwoutdoors/vendor/symfony/console/Symfony/Component/Console/Application.php(121): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#17 /var/www/html/flwoutdoors/artisan(59): Symfony\Component\Console\Application->run()
+#18 {main} [] []
+[2014-06-02 01:18:24] local.ERROR: 500 - file_put_contents(/var/www/html/flwoutdoors/app/config/local/app.php): failed to open stream: Permission denied @ /
+exception 'ErrorException' with message 'file_put_contents(/var/www/html/flwoutdoors/app/config/local/app.php): failed to open stream: Permission denied' in /var/www/html/flwoutdoors/vendor/laravel/framework/src/Illuminate/Filesystem/Filesystem.php:71
+Stack trace:
+#0 [internal function]: Illuminate\Exception\Handler->handleError(2, 'file_put_conten...', '/var/www/html/f...', 71, Array)
+#1 /var/www/html/flwoutdoors/vendor/laravel/framework/src/Illuminate/Filesystem/Filesystem.php(71): file_put_contents('/var/www/html/f...', '<?php\n\nreturn a...')
+#2 /var/www/html/flwoutdoors/vendor/laravel/framework/src/Illuminate/Foundation/Console/KeyGenerateCommand.php(49): Illuminate\Filesystem\Filesystem->put('/var/www/html/f...', '<?php\n\nreturn a...')
+#3 /var/www/html/flwoutdoors/vendor/laravel/framework/src/Illuminate/Console/Command.php(108): Illuminate\Foundation\Console\KeyGenerateCommand->fire()
+#4 /var/www/html/flwoutdoors/vendor/symfony/console/Symfony/Component/Console/Command/Command.php(241): Illuminate\Console\Command->execute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#5 /var/www/html/flwoutdoors/vendor/laravel/framework/src/Illuminate/Console/Command.php(96): Symfony\Component\Console\Command\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#6 /var/www/html/flwoutdoors/vendor/symfony/console/Symfony/Component/Console/Application.php(885): Illuminate\Console\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#7 /var/www/html/flwoutdoors/vendor/symfony/console/Symfony/Component/Console/Application.php(191): Symfony\Component\Console\Application->doRunCommand(Object(Illuminate\Foundation\Console\KeyGenerateCommand), Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#8 /var/www/html/flwoutdoors/vendor/symfony/console/Symfony/Component/Console/Application.php(121): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#9 /var/www/html/flwoutdoors/artisan(59): Symfony\Component\Console\Application->run()
+#10 {main} [] []
