@@ -1,0 +1,22 @@
+---
+- name: Customer Playbbok for LAMP Stack Installation
+  hosts: ec2_server
+  user: ec2-user
+  sudo: yes
+  vars:
+    deployed_environment: production
+    in_development: true
+  roles:
+    - server
+    - database
+  # handlers:
+  #   - name: restart nginx
+  #     action: service name=nginx state=restarted
+  #   - name: start nginx
+  #     action: service name=nginx state=started
+  #   - name: start php-fpm
+  #     service: name=php-fpm state=started
+  #   - name: restart php-fpm
+  #     service: name=php-fpm state=restarted
+  #   - name: restart sshd
+  #     service: name=sshd state=restarted

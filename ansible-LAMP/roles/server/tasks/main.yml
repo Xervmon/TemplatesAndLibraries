@@ -1,0 +1,59 @@
+# playbook.yml
+---
+
+- name: Update cache
+  action: yum name=* state=latest
+
+- name: Install apache2 using yum
+  action: yum pkg=httpd state=latest
+
+- name: Install php using yum
+  yum: pkg='{{item}}' state=latest
+  with_items:
+      - php
+      - php-mysql
+      - php-common
+      - php-curl
+      - php-mcrypt
+      - gcc 
+      - php-devel 
+      - php-pecl-memcached
+      - zlib-devel
+
+#- name: Install Memcached using pecl
+ # action: pecl install memcached
+  
+- name: Install git using yum
+  yum: pkg=git state=latest
+
+- name: install Hello World PHP script
+  copy: src=index.php dest=/var/www/html/index.php mode=0664
+
+- name: Copy the conf file to /etc/httpd/conf.d/ path.
+  template: src=000-default.conf.j2 dest=/etc/httpd/conf.d/000-default.conf mode=0664
+
+- name: Start the apache servers
+  service: name=httpd state=running enabled=yes
+
+- name: Run some commands for file permissions and checkconfig
+  command: "{{ item }}"
+  with_items:
+      - chkconfig httpd on
+      - groupadd www
+      - usermod -a -G www ec2-user
+      - chown -R root:www /var/www
+      - chmod 2775 /var/www
+      - find /var/www -type d -exec sudo chmod 2775 {} +
+      - find /var/www -type f -exec sudo chmod 0664 {} +
+
+- name: Memcached | Install Memcached package 
+  yum: pkg=memcached state=present
+
+#- name: Memcached | Push default configuration template
+ # template: src=$repository_basedir/memcached/templates/memcached.conf.j2  dest=/etc/memcached.conf owner=root group=root mode=0644
+  #notify:
+   # - memcached-restart
+
+- name: Memcached | Insure deamon is running correctly
+  service: name=memcached state=started
+
